@@ -1,8 +1,9 @@
 # Road‑Map: Embedded Systems + Linux + Edge‑AI (≈ 18 months)
 
-## Current Phase:
+## Current Phase
+
     Phase 0: Ground-Zero Setup
-    
+
 > **Goal:** Build hire‑ready skills across bare‑metal firmware, embedded‑Linux, and edge‑AI by completing a year‑long, week‑by‑week curriculum.
 >
 > **Structure:** 8 phases • 52 weeks • public repo with code (`src/` → `bin/`, `obj/`) and learning logs (`logs/week_XX.md`).
@@ -10,6 +11,7 @@
 ---
 
 ## 📅 Weekly Deliverables (High‑Level)
+
 *Granular day‑to‑day notes live in the matching `logs/week_XX.md` files.*
 
 | Week | Phase / Theme | High‑Level Deliverable |
@@ -20,7 +22,7 @@
 | **04** |                | Extend `ls` with `-l -a` & colours |
 | **05** |                | Mini `cat` + `grep` clones |
 | **06** |                | Mini‑shell v1 (prompt, `fork/execvp`) |
-| **07** |                | Mini‑shell v2 (pipes `|`, redirect `>`) |
+| **07** |                | Mini‑shell v2 (pipes `\|`, redirect`>`) |
 | **08** |                | Single‑file cooperative scheduler (`timerfd`, fn‑ptr tasks) |
 | **09** | 2 • Bare‑Metal MCU | STM32 blinky (bare‑metal) |
 | **10** |                | UART `printf` + button ISR |

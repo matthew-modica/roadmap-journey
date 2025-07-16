@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=c11 -g
 
 # Directories
-SRC_DIR = .
+SRC_DIR = src
 OBJ_DIR = obj
 BIN_DIR = bin
 

@@ -1,34 +1,35 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11 -g
+CFLAGS = -Wall -Wextra -std=c11 -g -Iinclude
 
 # Directories
 SRC_DIR = src
 OBJ_DIR = obj
 BIN_DIR = bin
+INC_DIR = include
 
 # Binary name
 TARGET = $(BIN_DIR)/hello
 
-# Source files and derived object files
+# Source and object files
 SRCS = $(wildcard $(SRC_DIR)/*.c)
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
-# Default rule
+# Default build target
 all: setup $(TARGET)
 
-# Linking
+# Link object files into the final binary
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-# Compile .c to .o
+# Compile .c → .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Create output directories if missing
+# Create build folders if they don't exist
 setup:
 	mkdir -p $(OBJ_DIR) $(BIN_DIR)
 
-# Clean up
+# Clean build artifacts
 clean:
 	rm -rf $(OBJ_DIR) $(BIN_DIR)

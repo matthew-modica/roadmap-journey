@@ -10,12 +10,14 @@ This roadmap progresses from foundational C programming and Linux systems to adv
 ## Phase 0: Ground-Zero Setup (~2 weeks)
 
 ### Objectives
+
 - Set up essential development environment
 - Familiarize with core debugging and analysis tools
 - Build foundational Linux programming knowledge
 
 ### Tasks
-- [ ] Install development tools:
+
+- [x] Install development tools:
   - GCC compiler suite
   - Make build system
   - GDB debugger
@@ -26,6 +28,7 @@ This roadmap progresses from foundational C programming and Linux systems to adv
 - [ ] Practice: Test and validate tool installations with simple C programs
 
 ### Key Skills Acquired
+
 - Development environment setup
 - Basic Linux system calls
 - Code quality and debugging workflows
@@ -35,11 +38,13 @@ This roadmap progresses from foundational C programming and Linux systems to adv
 ## Phase 1: Core C & Linux Systems Programming (~6 weeks)
 
 ### Objectives
+
 - Master fundamental Unix/Linux programming concepts
 - Understand process management and inter-process communication
 - Build practical system programming skills
 
 ### Projects
+
 - [ ] **Unix Tools Recreation**
   - Implement `ls` (directory listing)
   - Implement `cp` (file copying)
@@ -59,6 +64,7 @@ This roadmap progresses from foundational C programming and Linux systems to adv
   - Single-file implementation
 
 ### Key Skills Acquired
+
 - File system operations
 - Process and signal management
 - Memory management

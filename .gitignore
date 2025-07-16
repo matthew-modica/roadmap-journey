@@ -1,0 +1,42 @@
+# Compiled object files
+obj/
+*.o
+
+# Binaries
+bin/
+*.out
+*.exe
+
+# Editor backups and temp files
+*~
+*.swp
+*.tmp
+
+# Build system
+Makefile.bak
+
+# VS Code workspace files
+.vscode/
+
+# Logs and weekly build output (keep .md logs but ignore temp/output)
+logs/*.log
+logs/*.tmp
+
+# OS-specific stuff
+.DS_Store
+Thumbs.db
+
+# GDB / Valgrind artifacts
+core
+vgcore.*
+
+# ctags / cscope / indexing tools
+tags
+cscope.*
+
+# If you start using Python or scripts later
+__pycache__/
+*.pyc
+
+# Ignore clang-tidy cache if generated
+.clang-tidy-cache/

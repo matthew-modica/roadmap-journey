@@ -9,8 +9,8 @@
 - [x] Configure Git (`user.name`, `user.email`) **and** GitHub SSH
 - [x] Create project layout — `src/`, `obj/`, `bin/`, `logs/`
 - [x] Write `hello.c` + Makefile that builds to `bin/hello`
-- [] Step through `bin/hello` with `gdb -tui`
-- [] Run `valgrind`, `clang-tidy`, `cppcheck` on `hello.c`
-- [] Skim *The Linux Programming Interface* Ch. 1-3
+- [ ] Step through `bin/hello` with `gdb -tui`
+- [ ] Run `valgrind`, `clang-tidy`, `cppcheck` on `hello.c`
+- [ ] Skim *The Linux Programming Interface* Ch. 1-3
 
 ---

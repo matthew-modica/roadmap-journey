@@ -13,7 +13,7 @@ BIN_DIR = bin
 INC_DIR = include
 
 # Tool source files (assumes src/tools/my_ls.c, etc.)
-TOOLS = my_ls #my_cat my_cp my_grep
+TOOLS = my_ls my_cat my_cp my_grep
 
 # Construct full paths
 SRCS = $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(TOOLS)))

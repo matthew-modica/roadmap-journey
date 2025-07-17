@@ -40,3 +40,5 @@ __pycache__/
 
 # Ignore clang-tidy cache if generated
 .clang-tidy-cache/
+
+.obsidian/

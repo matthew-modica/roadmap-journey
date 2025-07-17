@@ -38,9 +38,10 @@ cscope.*
 __pycache__/
 *.pyc
 
-# Ignore clang-tidy cache if generated
+# Ignore clang-tidy
 .clang-tidy-cache/
 compile_commands.json
+**/.cache/
 
 .obsidian/
 

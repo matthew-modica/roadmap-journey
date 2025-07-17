@@ -2,12 +2,10 @@
 
 ---
 
-## ✅ Task List
+## Task List
 
-| Task | Status |
-|------|--------|
-| Commit & push **this log** to `logs/week_01.md` | [x] |
-| Install toolchain (`gcc`, `make`, `gdb`, `valgrind`, `clang-tidy`, `cppcheck`) | ✅ |
+- [x] Commit & push **this log** to `logs/week_01.md` | [x] |
+- [x] Install toolchain (`gcc`, `make`, `gdb`, `valgrind`, `clang-tidy`, `cppcheck`)
 | Configure Git (`user.name`, `user.email`) **and** GitHub SSH | ✅ |
 | Create project layout — `src/`, `obj/`, `bin/`, `logs/` | ✅ |
 | Write `hello.c` + Makefile that builds to `bin/hello` | ✅ |

@@ -1,52 +1,45 @@
 # $@ = target of the rule (thing you're building)
-# $^ = All prequisites of the rule
-# $< = First prerequisite of the rule
-# subst = $(subst find, replacement, source_text)
-# patsubst = $(patsubst pattern, replacement, source_text)
-# $(expression) = return the value of variable or expression
-# $(OBJS:.o=.d) = replace .o with .d from each string in OBJS
+# $^ = all prerequisites (dependencies)
+# $< = first prerequisite
 
 # Compiler and flags
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11 -g -Iinclude -MMD -MP
 
 # Directories
-SRC_DIR = src
-OBJ_DIR = obj
+SRC_DIR = src/tools
+OBJ_DIR = obj/tools
 BIN_DIR = bin
 INC_DIR = include
 
-# Binary name
-TARGET = $(BIN_DIR)/main
+# Tool source files (assumes src/tools/my_ls.c, etc.)
+TOOLS = my_ls #my_cat my_cp my_grep
 
-# Source and object file paths
-SRCS = $(shell find $(SRC_DIR) -name '*.c')
-
-# subst: Replace SRC_DIR/ (src/) with empty string from each .c path, i.e. strip src/ from each .c path | ex. src/tools/shell.c becomes tools/shell.c
-# patsubst: Replace all files something.c with obj/something.o from the src files stripped of src/ | ex. tools/shell.c becomes obj/tools/shell.o
-OBJS = $(patsubst %.c, $(OBJ_DIR)/%.o, $(subst $(SRC_DIR)/,,$(SRCS)))
-
-# Generate dependency files (.d)
+# Construct full paths
+SRCS = $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(TOOLS)))
+OBJS = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(TOOLS)))
+BINS = $(addprefix $(BIN_DIR)/, $(TOOLS))
 DEPS = $(OBJS:.o=.d)
 
-# Default build target
-all: setup $(TARGET)
+# Default target: build all tools
+all: setup $(BINS)
 
-# Link object files into the final binary
-$(TARGET): $(OBJS)
+# Link each binary from its object file
+$(BIN_DIR)/%: $(OBJ_DIR)/%.o
 	$(CC) $(CFLAGS) -o $@ $^
 
-# Compile .c → .o
+# Compile each source to object
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Create build folders if they don't exist
+# Create bin/ and obj/ if not present
 setup:
 	mkdir -p $(OBJ_DIR) $(BIN_DIR)
 
-# Clean build artifacts
+# Remove build artifacts
 clean:
 	rm -rf $(OBJ_DIR) $(BIN_DIR)
 
+# Include auto-generated header dependencies
 -include $(DEPS)

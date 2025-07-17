@@ -1,10 +1,10 @@
-# Week 01 — Ground-Zero Setup
+# Phase 00 — Ground-Zero Setup
 
 ---
 
 ## Task List
 
-- [x] Commit & push **this log** to `logs/week_01.md`
+- [x] Commit & push **this log** to `logs/phase_00.md`
 - [x] Install toolchain (`gcc`, `make`, `gdb`, `valgrind`, `clang-tidy`, `cppcheck`)
 - [x] Configure Git (`user.name`, `user.email`) **and** GitHub SSH
 - [x] Create project layout — `src/`, `obj/`, `bin/`, `logs/`

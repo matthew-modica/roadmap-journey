@@ -35,7 +35,7 @@ This roadmap progresses from foundational C programming and Linux systems to adv
 
 ---
 
-## Phase 1: Core C & Linux Systems Programming (~6 weeks)
+## Phase 1: Core C & Linux Systems  (~6 weeks)
 
 ### Objectives
 

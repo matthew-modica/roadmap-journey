@@ -20,3 +20,4 @@
 ---
 ## Chapter 1 - *History and Standards*
 
+Take notes later

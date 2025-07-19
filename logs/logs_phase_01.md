@@ -41,7 +41,7 @@
 
 ### Implementation Tasks
 - [ ] **my_ls** - Directory listing tool
-  - [ ] Basic directory reading with `opendir()`/`readdir()`
+  - [x] Basic directory reading with `opendir()`/`readdir()`
   - [ ] Command-line argument parsing
   - [ ] File stat information display
   - [ ] Error handling and edge cases

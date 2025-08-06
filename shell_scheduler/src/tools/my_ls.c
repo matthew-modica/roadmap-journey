@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    path = argv[optind];
+    path = (optind < argc) ? argv[optind] : ".";
     DIR *dir = opendir(path);
     while ((entry = readdir(dir)) != NULL) {
         if (!include_dotfiles && entry->d_name[0] == '.') {

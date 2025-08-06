@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
                 per_line = true;
                 break;
             case 'a':
+                include_dotfiles = true;
                 break;
           default :
                 break;

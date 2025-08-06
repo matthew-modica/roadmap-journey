@@ -6,13 +6,13 @@
 #include <stdbool.h>
 
 int main(int argc, char *argv[]) {
-    struct stat *st;
     struct dirent *entry;
     char *path;
-    int per_line = false;
-
+    bool per_line = false;
+    bool include_dotfiles = false;
+    
     int opt;
-    while ((opt = getopt(argc, argv, "la") != -1)) {
+    while ((opt = getopt(argc, argv, "la")) != -1) {
         switch (opt) {
             case 'l':
                 per_line = true;
@@ -27,10 +27,17 @@ int main(int argc, char *argv[]) {
     path = argv[optind];
     DIR *dir = opendir(path);
     while ((entry = readdir(dir)) != NULL) {
+        if (!include_dotfiles && entry->d_name[0] == '.') {
+            continue;
+        }
+
         if (per_line) {
             printf("%s\n", entry->d_name);
+        } else {
+            printf("%s ", entry->d_name);    
         }
     }
+    printf("\n");
 
     return 0;
 }

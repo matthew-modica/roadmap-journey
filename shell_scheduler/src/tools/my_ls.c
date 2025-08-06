@@ -38,7 +38,9 @@ int main(int argc, char *argv[]) {
             printf("%s ", entry->d_name);    
         }
     }
-    printf("\n");
+    if (!per_line) {
+        printf("\n");
+    }
 
     return 0;
 }

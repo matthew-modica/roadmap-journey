@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     char *path;
     bool per_line = false;
     bool include_dotfiles = false;
-    
+
     int opt;
     while ((opt = getopt(argc, argv, "la")) != -1) {
         switch (opt) {
@@ -20,12 +20,12 @@ int main(int argc, char *argv[]) {
             case 'a':
                 include_dotfiles = true;
                 break;
-          default :
+            default :
                 break;
         }
     }
 
-    path = (optind < argc) ? argv[optind] : ".";
+    path = (optind < argc) ? argv[optind] : "."; // Use current directory if none specified
     DIR *dir = opendir(path);
     while ((entry = readdir(dir)) != NULL) {
         if (!include_dotfiles && entry->d_name[0] == '.') {

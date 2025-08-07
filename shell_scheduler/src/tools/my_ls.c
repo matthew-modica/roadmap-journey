@@ -7,6 +7,7 @@
 
 int main(int argc, char *argv[]) {
     struct dirent *entry;
+    struct stat entry_stats;
     char *path;
     bool per_line = false;
     bool include_dotfiles = false;
@@ -33,6 +34,8 @@ int main(int argc, char *argv[]) {
         }
 
         if (per_line) {
+            stat(entry->d_name, &entry_stats); // TODO: Handle error
+            printf("%li ", entry_stats.st_size);
             printf("%s\n", entry->d_name);
         } else {
             printf("%s ", entry->d_name);    

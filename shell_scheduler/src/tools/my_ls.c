@@ -36,8 +36,9 @@ int main(int argc, char *argv[]) {
         if (per_line) {
             if (stat(entry->d_name, &entry_stats) == -1) {
                 perror("Error populating stats\n");
-            } 
-            printf("%li ", entry_stats.st_size);
+            } else {
+                printf("%li ", entry_stats.st_size);
+            }
             printf("%s\n", entry->d_name);
         } else {
             printf("%s ", entry->d_name);    

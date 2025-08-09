@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <dirent.h>
 
+// TODO: Only include actual ls options
 struct LsOpts {
     bool per_line;
     bool include_dotfiles;

@@ -41,7 +41,7 @@ void print_ls(struct LsOpts *ls_opts) {
         }
 
         if (ls_opts->per_line) {
-            if (stat(ls_opts->entry->d_name, &entry_stats) == -1) { // TODO: Can't use d_name here, must be path + d_name
+            if (stat(ls_opts->entry->d_name, &entry_stats) == -1) { //  FIX: Can't use d_name here, must be path + d_name
                 perror("Error populating stats\n");
             } else {
                 printf("%li ", entry_stats.st_size);

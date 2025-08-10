@@ -29,7 +29,9 @@ int main(int argc, char **argv) {
         perror("Error reading from file");
     }
 
-    close(fd);
+    if (close(fd) == -1) {
+        perror("Error closing file");
+    }
 
     return 0;
 }

@@ -30,7 +30,14 @@ int main(int argc, char **argv) {
                 perror(file_path);
                 return EXIT_FAILURE;
             }
+
             print_cat(file_path, fd);
+
+            if (fd != STDIN_FILENO && close(fd) == -1) {
+                int e = errno;
+                fprintf(stderr, "Error closing file %s : %s", file_path, strerror(e));
+                exit(EXIT_FAILURE);
+            }
         }
     }
 
@@ -43,16 +50,12 @@ void print_cat(char *file_path, int fd) {
     ssize_t bytes_read;
 
     while ((bytes_read = read(fd, buffer, sizeof(buffer))) > 0) {
+        //  BUG: Fix partial write scenarios
         write(STDOUT_FILENO, buffer, bytes_read);
 
         if (bytes_read == -1) {
             int e = errno;
             fprintf(stderr, "Error reading from file %s : %s", file_path, strerror(e));
-        }
-        if (fd != STDIN_FILENO && close(fd) == -1) {
-            int e = errno;
-            fprintf(stderr, "Error closing file %s : %s", file_path, strerror(e));
-            exit(EXIT_FAILURE);
         }
     }
     printf("\n");

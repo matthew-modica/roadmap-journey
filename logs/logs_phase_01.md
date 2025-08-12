@@ -40,7 +40,7 @@
 ## Project 1: Unix Tools Recreation
 
 ### Implementation Tasks
-- [ ] **my_ls** - Directory listing tool
+- [x] **my_ls** - Directory listing tool
   - [x] Basic directory reading with `opendir()`/`readdir()`
   - [x] Command-line argument parsing
   - [x] File stat information display
@@ -51,7 +51,7 @@
   - [x] File reading with proper buffering
   - [x] Multiple file handling
   - [x] stdin support when no files specified
-  - [ ] Error handling for file access
+  - [x] Error handling for file access
   - [ ] Performance optimization
 
 - [ ] **my_cp** - File copying tool

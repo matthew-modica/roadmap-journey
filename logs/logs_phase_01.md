@@ -44,11 +44,11 @@
   - [x] Basic directory reading with `opendir()`/`readdir()`
   - [x] Command-line argument parsing
   - [x] File stat information display
-  - [ ] Error handling and edge cases
-  - [ ] Memory management and cleanup
+  - [x] Error handling and edge cases
+  - [x] Memory management and cleanup
 
 - [ ] **my_cat** - File concatenation tool
-  - [ ] File reading with proper buffering
+  - [x] File reading with proper buffering
   - [ ] Multiple file handling
   - [ ] stdin support when no files specified
   - [ ] Error handling for file access

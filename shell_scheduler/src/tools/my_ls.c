@@ -9,6 +9,8 @@
 
 #include "tools.h"
 
+#define PATH_PADDING 5
+
 int main(int argc, char *argv[]) {
     struct LsOpts ls_opts;
     struct dirent entry;
@@ -45,7 +47,10 @@ void print_ls(DIR *dir, struct dirent *entry, struct LsOpts *ls_opts) {
         }
 
         if (ls_opts->per_line) {
-            char *full_path = strcat(ls_opts->path, entry->d_name);
+            int path_length = strlen(ls_opts->path) + strlen(entry->d_name) + PATH_PADDING;
+            char full_path[path_length];
+            snprintf(full_path, sizeof(full_path), "%s/%s", ls_opts->path, entry->d_name);
+
             if (stat(full_path, &entry_stats) == -1) { 
                 perror("Error populating stats\n");
             } else {

@@ -19,10 +19,11 @@ int main(int argc, char **argv) {
 
     //  TODO: Handle no path given, '-', '~', etc.
     if (optind >= argc) {
-        file_path = ".";
-    } else {
-        file_path = argv[optind];
+        printf("Missing required argument\n");
+        return EXIT_FAILURE;
     }
+    file_path = argv[optind];
+
     if ((fd = open(file_path, O_RDONLY)) == -1) {
         perror(file_path);
         return EXIT_FAILURE;
@@ -33,11 +34,11 @@ int main(int argc, char **argv) {
     }
 
     if (bytes_read == -1) {
-        perror("Error reading from file");
+        perror("Error reading from file\n");
     }
 
     if (close(fd) == -1) {
-        perror("Error closing file");
+        perror("Error closing file\n");
         return EXIT_FAILURE;
     }
 

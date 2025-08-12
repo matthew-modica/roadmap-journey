@@ -49,8 +49,8 @@
 
 - [ ] **my_cat** - File concatenation tool
   - [x] File reading with proper buffering
-  - [ ] Multiple file handling
-  - [ ] stdin support when no files specified
+  - [x] Multiple file handling
+  - [x] stdin support when no files specified
   - [ ] Error handling for file access
   - [ ] Performance optimization
 
@@ -74,6 +74,10 @@
 - [ ] Memory leak detection with `valgrind`
 - [ ] Static analysis with `clang-tidy` and `cppcheck`
 - [ ] Performance benchmarking
+
+### Notes
+#### Passing arrays vs pointers
+- When you get the size of an array in the scope that it is declared, it gives you the whole size of the array. When you get the size outside the scope it was declared, i.e. in a function, the array decays into a pointer, and you get only the size of a pointer.
 
 ---
 

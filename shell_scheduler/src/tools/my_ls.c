@@ -10,6 +10,8 @@
 
 int main(int argc, char *argv[]) {
     struct LsOpts ls_opts;
+    struct dirent entry;
+    DIR *dir;
 
     int opt;
     while ((opt = getopt(argc, argv, "la")) != -1) {
@@ -26,31 +28,31 @@ int main(int argc, char *argv[]) {
     }
 
     ls_opts.path = (optind < argc) ? argv[optind] : "."; // Use current directory if none specified
-    ls_opts.dir = opendir(ls_opts.path);
+    dir = opendir(ls_opts.path);
 
-    print_ls(&ls_opts);
+    print_ls(dir, &entry, &ls_opts);
 
     return 0;
 }
 
-void print_ls(struct LsOpts *ls_opts) {
+void print_ls(DIR *dir, struct dirent *entry, struct LsOpts *ls_opts) {
     struct stat entry_stats;
 
-    while ((ls_opts->entry = readdir(ls_opts->dir)) != NULL) {
-        if (!ls_opts->include_dotfiles && ls_opts->entry->d_name[0] == '.') {
+    while ((entry = readdir(dir)) != NULL) {
+        if (!ls_opts->include_dotfiles && entry->d_name[0] == '.') {
             continue;
         }
 
         if (ls_opts->per_line) {
-            char *full_path = strcat(ls_opts->path, ls_opts->entry->d_name);
+            char *full_path = strcat(ls_opts->path, entry->d_name);
             if (stat(full_path, &entry_stats) == -1) { 
                 perror("Error populating stats\n");
             } else {
                 printf("%li ", entry_stats.st_size);
             }
-            printf("%s\n", ls_opts->entry->d_name);
+            printf("%s\n", entry->d_name);
         } else {
-            printf("%s ", ls_opts->entry->d_name);    
+            printf("%s ", entry->d_name);    
         }
     }
     if (!ls_opts->per_line) {

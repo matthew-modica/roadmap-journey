@@ -9,10 +9,8 @@ struct LsOpts {
     bool per_line;
     bool include_dotfiles;
     char *path;
-    struct dirent *entry;
-    DIR *dir;
 }; 
 
-void print_ls(struct LsOpts *ls_opts);
+void print_ls(DIR *dir, struct dirent *entry, struct LsOpts *ls_opts);
 
 #endif

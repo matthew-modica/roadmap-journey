@@ -1,4 +1,5 @@
 #include <dirent.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/stat.h>
@@ -22,8 +23,9 @@ int main(int argc, char *argv[]) {
             case 'a':
                 ls_opts.include_dotfiles = true;
                 break;
-            default :
-                break;
+            case '?' :
+                printf("Unknown argument: -%c", optopt);
+                return EXIT_FAILURE;
         }
     }
 

@@ -1,3 +1,4 @@
+#include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -16,7 +17,12 @@ int main(int argc, char **argv) {
         break;
     } 
 
-    file_path = argv[optind];
+    //  TODO: Handle no path given, '-', '~', etc.
+    if (optind >= argc) {
+        file_path = ".";
+    } else {
+        file_path = argv[optind];
+    }
     if ((fd = open(file_path, O_RDONLY)) == -1) {
         perror(file_path);
         return EXIT_FAILURE;
@@ -32,6 +38,7 @@ int main(int argc, char **argv) {
 
     if (close(fd) == -1) {
         perror("Error closing file");
+        return EXIT_FAILURE;
     }
 
     return 0;

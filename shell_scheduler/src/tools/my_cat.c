@@ -21,6 +21,7 @@ int main(int argc, char **argv) {
         return 1;
     }
 
+    //  BUG: Must write the exact size of bytes_read, not buffer
     while ((bytes_read = read(fd, buffer, sizeof(buffer))) > 0) {
         write(STDOUT_FILENO, buffer, sizeof(buffer));
     }

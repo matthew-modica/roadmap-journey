@@ -24,7 +24,6 @@ int main(int argc, char *argv[]) {
                 ls_opts.include_dotfiles = true;
                 break;
             case '?' :
-                printf("Unknown argument: -%c", optopt);
                 return EXIT_FAILURE;
         }
     }

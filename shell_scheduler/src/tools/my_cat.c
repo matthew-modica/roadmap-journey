@@ -1,5 +1,4 @@
 #include "tools.h"
-#include <bits/getopt_core.h>
 #include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>

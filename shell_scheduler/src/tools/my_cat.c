@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <getopt.h>
 #include <fcntl.h>
@@ -18,12 +19,11 @@ int main(int argc, char **argv) {
     file_path = argv[optind];
     if ((fd = open(file_path, O_RDONLY)) == -1) {
         perror(file_path);
-        return 1;
+        return EXIT_FAILURE;
     }
 
-    //  BUG: Must write the exact size of bytes_read, not buffer
     while ((bytes_read = read(fd, buffer, sizeof(buffer))) > 0) {
-        write(STDOUT_FILENO, buffer, sizeof(buffer));
+        write(STDOUT_FILENO, buffer, bytes_read);
     }
 
     if (bytes_read == -1) {

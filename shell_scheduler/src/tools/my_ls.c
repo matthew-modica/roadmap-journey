@@ -16,6 +16,9 @@ int main(int argc, char *argv[]) {
     struct dirent entry;
     DIR *dir;
 
+    ls_opts.include_dotfiles = false;
+    ls_opts.per_line = false;
+
     int opt;
     while ((opt = getopt(argc, argv, "la")) != -1) {
         switch (opt) {
@@ -58,7 +61,7 @@ void print_ls(DIR *dir, struct dirent *entry, struct LsOpts *ls_opts) {
             }
             printf("%s\n", entry->d_name);
         } else {
-            printf("%s ", entry->d_name);    
+            printf("%s\n", entry->d_name);    
         }
     }
     if (!ls_opts->per_line) {

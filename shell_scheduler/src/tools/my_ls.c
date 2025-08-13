@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
                 return EXIT_FAILURE;
         }
     }
-
+    // Test commit
     ls_opts.path = (optind < argc) ? argv[optind] : "."; // Use current directory if none specified
     dir = opendir(ls_opts.path);
 
